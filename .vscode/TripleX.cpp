@@ -1,24 +1,20 @@
 //it's like importing iostream in java. it's called Preprocessor Directive.
 #include <iostream>
 
-/*
-int main() is our main function
-creating main() class and int is a return type.
-*/
-int main()
+void PrintIntro()
 {
-    
 std::cout << std::endl;
 //std::cout << = In Java, the equivalent would be System.out.println("Hello, World!");
-std::cout << "You're a goblin, deprived, owning nothing, wandering the labyrinthine depths of the dungeon.\n\n";
-
+std::cout << "\n\nYou're a goblin, deprived, owning nothing, wandering the labyrinthine depths of the dungeon.\n\n";
 std::cout << "In a secluded chamber, illuminated by the flickering light of a single fire, you stand before the chieftain's tipi. The air inside is thick with the scent of ancient incense.\n";
-
 std::cout << "As you push aside the hide covering the entrance, you find the chieftain sitting cross-legged on the ground, surrounded by totems and mystical symbols. His skeletal frame complements an expression filled with anger, sorrow, and a profound sense of emptiness. He says,\n\n";
-
-
 std::cout << "\"You're merely a goblin, outwitted even by slimes, and with such foolishness, your chances against the heavily shielded men of flesh are nonexistent. Prove to me your worth.\"\n";
-  
+}
+
+bool PlayGame()
+{
+    PrintIntro();
+
     //declaring 3 variables
     const int NumA = 4;
     const int NumB = 2;
@@ -31,8 +27,8 @@ std::cout << "\"You're merely a goblin, outwitted even by slimes, and with such 
     //print sum and product to the terminal
     std::cout << std::endl;
     std::cout << "*There are three numbers...\n";
-    std::cout << "\n+ *the numbers add-up to: " << + NumSum;
-    std::cout << "\n+ *the numbers multiply to give: " << + NumProduct;
+    std::cout << "\n*the numbers add-up to: " << + NumSum;
+    std::cout << "\n*the numbers multiply to give: " << + NumProduct;
 
     std::cout << std::endl;
     std::cout << "Now what are the Three numbers: ";
@@ -59,13 +55,31 @@ std::cout << "\"You're merely a goblin, outwitted even by slimes, and with such 
     if(GuessSum == NumSum && GuessProduct == NumProduct)
     {
         std::cout << "\"Hmm..You're right...\"";
+        return true;
     }
 
     else
     {
         std::cout << "The chieftain crushed your skull, observing coldly as the life faded from your eyes.";
+        return false;
     }
 
+}
+/*
+int main() is our main function
+creating main() class and int is a return type.
+*/
+int main()
+{
+
+    //implemented while loop so that player can play again.
+    while(true)
+    {
+    bool bLevelComplete = PlayGame();
+    PlayGame();
+    std::cin.clear();
+    std::cin.ignore();
+    }
     return 0;
 }   
 
